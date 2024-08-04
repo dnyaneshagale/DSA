@@ -26,16 +26,16 @@ public class Inheritance{
     } 
 
     public static class UpdatedAdvCalculator extends AdvCalculator{
-        // void div(int a, int b){
-        //     int divi = a / b;
-        //     if ((a%b)==0) {
+        void div(int a, int b){
+            int divi = a / b;
+            if ((a%b)==0) {
                 
-        //         System.out.println("\n Quotient = "+ divi);
-        //     }else{
-        //         System.out.println("Quotient = "+ divi + "\n\tRemainder = " + (a%b));
-        //     }
+                System.out.println("\n Quotient = "+ divi);
+            }else{
+                System.out.println("Quotient = "+ divi + "\n\tRemainder = " + (a%b));
+            }
 
-         void double
+        //  void double
         }
     }
 

@@ -21,6 +21,7 @@ public class LinkedListIntro {
             }else{
                 tail.next = temp;
                 tail = temp;
+                
             }
             size++;
         }
