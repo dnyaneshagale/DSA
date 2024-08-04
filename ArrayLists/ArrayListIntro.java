@@ -27,7 +27,6 @@ public class ArrayListIntro {
         //Remove Value
         list.remove(1); //Removed element at Index 1
 
-
         /*
         Note :
         1. Set Value ko Change karega . Change or Update u say
