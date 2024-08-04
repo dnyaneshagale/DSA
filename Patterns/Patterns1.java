@@ -9,7 +9,7 @@ public class Patterns1 {
 
         for(int rows=0;rows<N;rows++){
             for(int columns=0; columns<N; columns++){
-                System.out.print("*");
+                System.out.print("* ");
             }
             System.out.println();
         }
