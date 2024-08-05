@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 class Human{
     private int age = 19;
-    String name = "Sahil";
+    private String name = "Dnyanesh";
 
     
     void getInfo(){
