@@ -46,6 +46,5 @@ public class August_7_2024 {
 
         August_7_2024 hello = new August_7_2024();
         hello.accessGetData(N);
-        
     }
 }
