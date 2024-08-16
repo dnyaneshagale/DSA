@@ -1,7 +1,7 @@
 class Solution {
     public void nextPermutation(int[] nums) {
         int n = nums.length;
-        int k = n-1;
+        int k = n-2;
 
         //null checks
         if(nums.length == 0 || nums == null) return;
