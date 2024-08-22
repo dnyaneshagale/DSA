@@ -1,7 +1,7 @@
 class Solution {
     public int romanToInt(String s) {
         int sum = 0;
-
+            s
         int i = 0;
         for(i = 0; i <  s.length(); i++){
             if(s.charAt(i)=='M'){
