@@ -1,19 +1,7 @@
-import java.util.Scanner;
-
 public class ScalarClass2 {
     public static void main(String[] args) {
-        Scanner scn = new Scanner(System.in);
-        int n = scn.nextInt();
-
-        int[] arr = new int[n];
-
-        for(int i = 0; i < arr.length; i++){
-            arr[i] = scn.nextInt();
-        }
-
+        int[] arr = {10, 20, 30, 40, 50, 60};
         display(arr, 0);
-
-        scn.close();
     }
 
     public static void display(int[] arr, int i){
