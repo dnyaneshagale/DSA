@@ -17,32 +17,16 @@ public class BubbleSort{
     }
 
     public static void bubbleSort(int[] arr){
-        for(int itr = 1; itr<=arr.length; itr++){
-            for(int j = 0; j < arr.length - itr ; j++){
-                if(isSmaller(arr, j+1, j)==true){
-                    swap(arr, j+1, j);
+        for(int turns = 0; turns < arr.length - 1; turns++){
+            for(int j = 0; j < arr.length - 1 - turns; j++){
+                if(arr[j] > arr[j+1]){
+                    //swap
+                    int temp = arr[j];
+                    arr[j] = arr[j+1];
+                    arr[j+1] = temp;
                 }
             }
         }
-    }
-
-
-
-    public static boolean isSmaller(int[] arr, int i, int j){
-        System.out.println("Comparing "+ arr[i]+ " and " + arr[j]);
-        if(arr[i]<arr[j]){
-            return true;
-        }else{
-            return false;
-        }
-    }
-
-    public static void swap(int[] arr, int i, int j){
-        System.out.println("Swapping "+ arr[i]+ " and "+arr[j]);
-
-        int temp = arr[i];
-        arr[i]=arr[j];
-        arr[j]=temp;
     }
 
     public static void print(int[] arr){
