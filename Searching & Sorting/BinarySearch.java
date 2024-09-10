@@ -6,20 +6,26 @@ public class BinarySearch{
         int[] arr = {10, 20, 30, 40, 50, 60, 70, 80, 90, 100};
         int data= 70;
 
-        int l = 0;  //Low
-        int h = arr.length-1;   //High
+        int ans = binarySearch(arr, data);
+        System.out.println(ans);
+        
+    }
 
-        while(l<=h){
-            int m = (l+h)/2;        //Mid = (low+High)/2
-            if(data>arr[m]){
-                l = m +1;
-            }else if(data<arr[m]){
-                h = m-1;
-            }else{
-                System.out.println(m);
-                return;
+    public static int binarySearch(int[] arr, int data) {
+        int start = 0;
+        int end = arr.length - 1;
+
+        while(start <= end) {
+            int mid = (start+end)/2;
+
+            if(arr[mid] == data) {
+                return mid;
+            }else if(arr[mid] < data) {
+                start = mid + 1;
+            }else {
+                end = mid - 1;
             }
         }
-        System.out.println(-1);
+        return -1;
     }
 }
