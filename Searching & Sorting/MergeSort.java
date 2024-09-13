@@ -2,18 +2,16 @@ import java.util.*;
 import java.io.*;
 
 public class MergeSort {
-    public static int[] mergeSort(int[] arr, int lo, int hi){
-        if(lo==hi){
-            int[] ba = new int[1]; //bs = base array which has to break the recursive call
-            ba[0]=arr[lo];
-            return ba;
+    public static void mergeSort(int[] arr, int si, int ei){
+        if(si >= ei){
+            return;
         }
-        int mid = (lo+hi)/2;
-        int[] fsh = mergeSort(arr, lo, mid); //fsh = First Sorted Array
-        int[] ssh = mergeSort(arr, mid+1, hi);  //ssh = Second Sorted Array
-        int[] fsa = mergeTwoSortedArrays(fsh, ssh);
+        int mid = si + (ei - si)/2;
 
-        return fsa;
+        mergeSort(arr, si, mid);
+        mergeSort(arr, mid+1, ei);
+
+        merge(arr, si, ei);
     }
 
     public static void printSortedArray(int[] arr){
@@ -23,7 +21,7 @@ public class MergeSort {
     }
 
 
-    public static int[] mergeTwoSortedArrays(int[]a, int[] b){
+    public static void mergeTwoSortedArrays(int[] arr, int si, int ei){
         int[] res = new int[a.length+b.length]; //res -> Sum of Arrays when Added Together
 
         int i =0;
