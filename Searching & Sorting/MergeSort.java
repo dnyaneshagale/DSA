@@ -11,63 +11,69 @@ public class MergeSort {
         mergeSort(arr, si, mid);
         mergeSort(arr, mid+1, ei);
 
-        merge(arr, si, ei);
+        merge(arr, si, mid, ei);
     }
 
-    public static void printSortedArray(int[] arr){
-        for(int i =0; i<arr.length; i++){
-            System.out.print(arr[i]+ " ");
+    public static void print(int[] arr){
+        for(int chu : arr) {
+            System.out.print(chu + " ");
         }
     }
 
 
-    public static void mergeTwoSortedArrays(int[] arr, int si, int ei){
-        int[] res = new int[a.length+b.length]; //res -> Sum of Arrays when Added Together
+    public static void merge(int[] arr, int si, int mid, int ei){
+        int[] temp = new int[ei - si + 1]; //res -> Sum of Arrays when Added Together
 
-        int i =0;
-        int j =0;
-        int k = 0;
+        int i = si; //iterator for right part
+        int j = mid+1; //iterator for right part
+        int k = 0; //iterator for temp array
 
 
-        while(i<a.length && j<b.length){
-            if(a[i]<b[j]){
-                res[k]= a[i];
+        while(i<= mid && j <= ei){
+            if(arr[i] < arr[j]){
+                temp[k]= arr[i];
                 i++;
                 k++;
             }else{
-                res[k]=b[j];
+                temp[k] = arr[j];
                 j++;
                 k++;
             }
         }
 
-        while(i < a.length){
-            res[k]=a[i];
-            i++;
-            k++;
+        //left part
+        while(i <= mid){
+            temp[k++] = arr[i++];
         }
 
-        while (j < b.length) {
-            res[k]=b[j];
-            j++;
-            k++;
+        //right part
+        while (j <= ei) {
+            temp[k++] = arr[j++];
         }
-        return res;
+
+        //copy temp to original array
+        for(k = 0, i = si; k < temp.length; k++, i++) {
+            arr[i] = temp[k];
+        }
     }
 
     public static void main(String[] args) {
-        Scanner scn = new Scanner(System.in);
-        System.out.println("Enter size Array");
-        int m = scn.nextInt();
+        // Scanner scn = new Scanner(System.in);
+        // System.out.println("Enter size Array");
+        // int m = scn.nextInt();
 
-        System.out.println("Enter Elements in Array");
-        int[] a = new int[m];
-        for(int i = 0; i<a.length; i++){
-            a[i]=scn.nextInt();
-        }
+        // System.out.println("Enter Elements in Array");
+        // int[] a = new int[m];
+        // for(int i = 0; i<a.length; i++){
+        //     a[i]=scn.nextInt();
+        // }
 
-        int[] sortedarray = mergeSort(a, 0, a.length-1);
-        printSortedArray(sortedarray);
+        int[] arr = {9, 4, 6, 3, 7, 1, 2, 8};
+
+        mergeSort(arr, 0, arr.length-1);
+
+        print(arr);
+        
     }
 
 }
