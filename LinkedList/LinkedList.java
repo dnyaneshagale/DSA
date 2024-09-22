@@ -135,23 +135,43 @@ public class LinkedList{
         return -1;
     }
 
+    public int helper(Node head, int key){
+        if(head == null) return -1;
+    
+        if(head.data == key) return 0;
+
+        int idx = helper(head.next, key);
+
+        if(idx == -1) return -1;
+
+        return idx+1;
+    
+    }
+    public int recSearch(int key){
+        return helper(head, key);
+    }
+
 
     public static void main(String[] args) {
         LinkedList ll = new LinkedList();
-        ll.print();
-        ll.addFirst(1);
-        ll.print();
-        ll.addFirst(2);
-        ll.print();
-        ll.addLast(3);
-        ll.print();
-        ll.add(2, 9);
-        ll.print();
-        ll.removeFirst();
-        ll.print();
-        ll.removeLast();
-        ll.print();
 
-        System.out.println("Size => " + ll.size);
+        ll.addFirst(1);
+
+        ll.addFirst(2);
+
+        ll.addLast(3);
+
+        ll.add(2, 9);
+        
+        // ll.removeFirst();
+        // ll.removeLast();
+        // System.out.println("Size => " + ll.size);
+        System.out.println("Iterative Search => ");
+        System.out.println(ll.itrSearch(3));
+        System.out.println(ll.itrSearch(8));
+
+        System.out.println("\n\nRecursive Search => ");
+        System.out.println(ll.recSearch(3));
+        System.out.println(ll.recSearch(8));
     }
 }
