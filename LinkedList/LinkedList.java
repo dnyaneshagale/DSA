@@ -121,6 +121,20 @@ public class LinkedList{
         System.out.println("null");
     }
 
+    public int itrSearch(int key){ // O(n)
+        Node temp = head;
+        int i = 0;
+
+        while(temp != null){
+            if(temp.data == key){
+                return i;
+            }
+            temp = temp.next;    
+            i++;
+        }
+        return -1;
+    }
+
 
     public static void main(String[] args) {
         LinkedList ll = new LinkedList();
