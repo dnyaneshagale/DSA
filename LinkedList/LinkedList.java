@@ -197,25 +197,65 @@ public class LinkedList{
         Node fast = head;
 
         while(fast != null && fast.next != null){
-            slow = fast.next; //+1
+            slow = slow.next; //+1
             fast = fast.next.next; //+2
         }
 
         return slow;
     }
 
+    public boolean checkPalindrome(){
+        if(head == null || head.next == null) return true;
+
+        //Step 1 -> Find Middle Node
+        Node midNode = findMid(head);
+
+        //Step 2 -> 2nd Half ko Reverse
+        Node prev = null;
+        Node curr = midNode;
+        Node next;
+
+        while(curr != null){
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+        Node right = prev;
+        Node left = head;
+
+        //Step 3 -> Check if Right Part is Equal to Left Part
+        while(right != null){
+            if(right.data != left.data){
+                return false;
+            }
+            right = right.next;
+            left = left.next;
+        }
+
+        return true;
+    }
+
     public static void main(String[] args) {
         LinkedList ll = new LinkedList();
 
-        ll.addFirst(1);
+        ll.addLast(1);
+        ll.addLast(2);
+        ll.addLast(2);
+        ll.addLast(1);
 
-        ll.addFirst(2);
+        System.out.println(ll.checkPalindrome());
 
-        ll.addLast(3);
+        
+        // ll.addFirst(1);
 
-        ll.add(2, 9);
+        // ll.addFirst(2);
 
-        ll.print();
+        // ll.addLast(3);
+
+        // ll.add(2, 9);
+
+        // ll.print();
         // ll.reverse();
         // ll.removeNthFromEnd(2);
         // ll.print();
