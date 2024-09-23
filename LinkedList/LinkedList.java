@@ -192,6 +192,18 @@ public class LinkedList{
         return;
     }
 
+    public Node findMid(Node head){
+        Node slow = head;
+        Node fast = head;
+
+        while(fast != null && fast.next != null){
+            slow = fast.next; //+1
+            fast = fast.next.next; //+2
+        }
+
+        return slow;
+    }
+
     public static void main(String[] args) {
         LinkedList ll = new LinkedList();
 
@@ -205,8 +217,8 @@ public class LinkedList{
 
         ll.print();
         // ll.reverse();
-        ll.removeNthFromEnd(2);
-        ll.print();
+        // ll.removeNthFromEnd(2);
+        // ll.print();
 
         // ll.removeFirst();
         // ll.removeLast();
