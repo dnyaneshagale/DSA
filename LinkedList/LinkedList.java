@@ -153,7 +153,7 @@ public class LinkedList{
 
     public void reverse(){
         Node prev = null;
-        Node curr = head = tail;
+        Node curr = tail = head;
         Node next;
 
         while(curr != null){
@@ -177,7 +177,7 @@ public class LinkedList{
         ll.addLast(3);
 
         ll.add(2, 9);
-        
+
         ll.print();
         ll.reverse();
         ll.print();
