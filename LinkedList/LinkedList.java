@@ -166,6 +166,31 @@ public class LinkedList{
         head = prev;
     }
 
+    public void removeNthFromEnd(int n){
+        int sz = 0;
+        Node temp = head;
+        while(temp != null){
+            temp = temp.next;
+            sz++;
+        }
+
+        if(n == sz){
+            head = head.next;
+            return;
+        }
+
+        Node prev = head;
+        int i = 1;
+        int idxToFind = sz - n;
+
+        while(i < idxToFind){
+            prev = prev.next;
+            i++;
+        }
+
+        prev.next = prev.next.next;
+        return;
+    }
 
     public static void main(String[] args) {
         LinkedList ll = new LinkedList();
@@ -179,7 +204,8 @@ public class LinkedList{
         ll.add(2, 9);
 
         ll.print();
-        ll.reverse();
+        // ll.reverse();
+        ll.removeNthFromEnd(2);
         ll.print();
 
         // ll.removeFirst();
