@@ -23,6 +23,28 @@ public class Patterns4i {
             }
             System.out.println();
         }
+
+        // sc.close();
+        
+
+        // Nachiket Code
+
+        int height = sc.nextInt(); // Height of the pyramid
+
+        for (int i = 0; i < height; i++) {
+            // Print spaces
+            for (int j = i; j < height; j++) {
+                System.out.print(" ");
+            }
+            // Print stars
+            for (int k = 0; k <= (2 * i ); k++) {
+                System.out.print("*");
+            }
+            // Move to the next line
+            System.out.println();
+        }
+        sc.close();
     }
+
     
 }
