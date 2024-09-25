@@ -279,18 +279,6 @@ public class LinkedList{
         prev.next = null;
     }
 
-    public Node getMid(){
-        Node slow = head;
-        Node fast = head.next;
-
-        while(fast != null && fast.next != null){
-            slow = slow.next;
-            fast = fast.next;
-        }
-        
-        return slow;
-    }
-
     public Node merge(Node head1, Node head2){
         Node mergedLL = new Node(-1);
         Node temp = mergedLL;
@@ -322,13 +310,24 @@ public class LinkedList{
         return mergedLL.next;
     }
 
-    public Node mergeSort(Node head){
-        if(head == null || head.next == null){
-            return head;
+    public Node getMid(Node head){
+        Node slow = head;
+        Node fast = head.next;
+
+        while(fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
         }
+        
+        return slow;
+    }
+
+
+    public Node mergeSort(Node head){
+        if(head == null || head.next == null) return head;
 
         //Find Mid  
-        Node mid = getMid();
+        Node mid = getMid(head);
 
         //Node RightHead
         Node rightHead = mid.next;
@@ -348,11 +347,12 @@ public class LinkedList{
         ll.addFirst(3);
         ll.addFirst(4);
         ll.addFirst(5);
-
+        ll.addLast(-1);
+        
         ll.print();
         ll.head = ll.mergeSort(ll.head);
         ll.print();
-        
+
         // head = new Node(1);
         // Node temp = new Node(2);
         // head.next = temp;
