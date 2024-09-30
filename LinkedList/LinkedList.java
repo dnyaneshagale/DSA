@@ -310,19 +310,6 @@ public class LinkedList{
         return mergedLL.next;
     }
 
-    public Node getMid(Node head){
-        Node slow = head;
-        Node fast = head.next;
-
-        while(fast != null && fast.next != null){
-            slow = slow.next;
-            fast = fast.next.next;
-        }
-        
-        return slow;
-    }
-
-
     public Node mergeSort(Node head){
         if(head == null || head.next == null) return head;
 
@@ -339,19 +326,81 @@ public class LinkedList{
         return merge(newLeft, newRight); 
     }
 
+    public Node getMid(Node head){
+        Node slow = head;
+        Node fast = head.next;
+
+        while(fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        
+        return slow;
+    }
+
+    public void zigZag(){
+        //Find Mid
+        Node slow = head;
+        Node fast = head.next;
+
+        while(fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        Node mid = slow;
+
+        //Reverse Second Half
+        Node curr = mid.next;
+        mid.next = null;
+        Node prev = null;
+        Node next;
+
+        while(curr != null){
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+        Node right = prev;
+        Node left = head;
+        Node nextL, nextR;
+
+        //alt-merge to all
+        while(left != null && right != null){
+            nextL = left.next;
+            left.next = right;
+            nextR = right.next;
+            right.next = nextL;
+
+            right = nextR;
+            left = nextL;
+        }
+    }
+
     public static void main(String[] args) {
 
         LinkedList ll = new LinkedList();
-        ll.addFirst(1);
-        ll.addFirst(2);
-        ll.addFirst(3);
-        ll.addFirst(4);
-        ll.addFirst(5);
-        ll.addLast(-1);
+        ll.addLast(1);
+        ll.addLast(2);
+        ll.addLast(3);
+        ll.addLast(4);
+        ll.addLast(5);
+
+        ll.print();
+        ll.zigZag();
+        ll.print();
+
+        // LinkedList ll = new LinkedList();
+        // ll.addFirst(1);
+        // ll.addFirst(2);
+        // ll.addFirst(3);
+        // ll.addFirst(4);
+        // ll.addFirst(5);
+        // ll.addLast(-1);
         
-        ll.print();
-        ll.head = ll.mergeSort(ll.head);
-        ll.print();
+        // ll.print();
+        // ll.head = ll.mergeSort(ll.head);
+        // ll.print();
 
         // head = new Node(1);
         // Node temp = new Node(2);
