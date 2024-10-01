@@ -5,7 +5,8 @@ public class StringsPalindrome {
     public static void main(String[] args) {
         Scanner scn = new Scanner(System.in);
         String s = scn.next();
-        solution(s);
+        boolean ans = isPalindrome(s);
+        System.out.println(ans);
     }
 
     public static void solution(String str){
