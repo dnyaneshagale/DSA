@@ -32,4 +32,14 @@ class Solution {
 
         return head;
     }
+        //Helper Function
+        public ListNode findNthNode(ListNode temp, int k){
+        
+            while(k > 1){
+                temp = temp.next;
+                k--;
+            }
+    
+            return temp;
+        }
 }
