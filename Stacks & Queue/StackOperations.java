@@ -1,6 +1,6 @@
 import java.util.Stack;
 
-public class AddAtBottomStack {
+class StackOperations {
 
     public static void addAtBottom(Stack<Integer> s, int data){
         if(s.isEmpty()){
