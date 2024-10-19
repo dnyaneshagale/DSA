@@ -19,7 +19,13 @@ public class NextGreater {
             }
             s.push(i);
         }
-
+        /*
+         * 1. Next Greater Right
+         * 2. Next Greater Left
+         * 3. Next Smaller Right
+         * 4. Next Smaller Left
+         */
+        
         for(int i = 0; i < nextGreatest.length; i++){
             System.out.print(nextGreatest[i] + " ");
         }
