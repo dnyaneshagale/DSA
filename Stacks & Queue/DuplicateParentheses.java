@@ -25,8 +25,8 @@ public class DuplicateParentheses {
         return false;
     }
     public static void main(String[] args) {
-        String str1 = "((a+b))";
-        String str2 = "(a+b)";
-        System.out.println(isDuplicate(str1));
+        String str1 = "((a+b))"; //True (Duplicate Bracket Exists)
+        String str2 = "(a+b)"; //False (Duplicate Bracket doesn't exist)
+        System.out.println(isDuplicate(str2));
     }
 }
