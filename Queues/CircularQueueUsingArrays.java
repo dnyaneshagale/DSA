@@ -1,69 +1,81 @@
-public class ImplArrays {
+public class CircularQueueUsingArrays {
     static class Queue{
-        static int arr[];
+        static int [] arr;
         static int size;
         static int rear;
+        static int front;
 
         public Queue(int n){
             arr = new int[n];
             size = n;
+            front = -1;
             rear = -1;
         }
 
-        
-        // 1. isEmpty()
+        // isEmpty()
         public static boolean isEmpty(){
-            return rear == -1;
+            return front == -1 && rear == -1;
         }
 
-        // 2. Add()
+        // isFull()
+        public static boolean isFull(){
+            return (rear + 1) % size == front;
+        }
+
+        // add
         public static void add(int data){
-            if(rear == size - 1){
+            if(isFull()){
                 System.out.println("Queue is Full");
                 return;
             }
 
-            rear = rear + 1;
+            if(front == -1){ //To add First Element
+                front = 0;
+            }
+
+            rear = (rear + 1) % size;
             arr[rear] = data;
         }
 
-        // 3. Remove
+        //remove 
         public static int remove(){
             if(isEmpty()){
                 System.out.println("Queue is Empty");
                 return -1;
             }
 
-            int front = arr[0];
-            for(int i = 0; i < rear; i++){
-                arr[i] = arr[i+1];
+            int result = arr[front];
+
+            if(front == rear){
+                rear = front = - 1;
+            }else{
+                front = (front + 1) % size;
             }
-            rear = rear - 1;
-            return front;
+            return result;
         }
 
-        // 4. Peek
+        // Peek
         public static int peek(){
             if(isEmpty()){
                 System.out.println("Queue is Empty");
                 return -1;
             }
 
-            return arr[0];
+            return arr[front];
         }
     }
-    
+
     public static void main(String[] args) {
         Queue q = new Queue(5);
-        q.add(1);
-        q.add(2);
-        q.add(3);
-        q.add(4);
-        q.add(5);
+        q.add(10);
+        q.add(20);
+        q.add(30);
+        q.add(40);
+        q.add(50);
 
         while(!q.isEmpty()){
-            System.out.println(q.remove());
+            System.out.println(q.peek());
+            q.remove();
         }
-        q.peek();
     }
 }
