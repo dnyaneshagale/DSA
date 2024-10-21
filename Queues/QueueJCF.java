@@ -33,8 +33,8 @@ public class QueueJCF {
 
 
 
-        System.out.println("  - Queue is an Interface in Java. \r\n" +
-                        "  - Interfaces cannot be Created as Objects\r\n" +
-                        "  - so we use either LinkedList or ArrayDeque Class to create Queue.");
+        System.out.println("\n- Queue is an Interface in Java. \r\n" + 
+                        "- Interfaces cannot be Created as Objects\r\n" +
+                        "- so we use either LinkedList or ArrayDeque Class to create Queue.");
     }
 }
