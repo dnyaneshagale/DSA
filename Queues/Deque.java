@@ -1,5 +1,5 @@
 import java.util.*;
-public class Deque {
+public class DEQue {
     public static void main(String[] args) {
         Deque<Integer> deque = new LinkedList<>();
         deque.addFirst(1);
