@@ -8,60 +8,57 @@ class MyCircularQueue {
             this.next = null;
         }
     }
-    
-    Node head;
-    Node tail;
-    int size = 0;
-    int k;
+
+    public Node head = null;
+    public Node tail = null;
+    public int size = 0;
+    public int k;
 
     public MyCircularQueue(int k) {
-        this.k = k;
-        head = null;
-        tail = null;
+        this.k = k; //k  ->  size of Queue    
     }
     
     public boolean enQueue(int value) {
+        if(isFull()){
+            return false;
+        }
         Node newNode = new Node(value);
-        if(head == null){
+        
+        if(size == 0){
             head = tail = newNode;
-            size++;
-            return true;
-        }else if(size < k){
+        }else{
             tail.next = newNode;
             tail = newNode;
-            size++;
-            return true;
         }
-        return false;
+        size++;
+        return true;
     }
     
     public boolean deQueue() {
-        if(head == null){
+        if(size == 0){
             return false;
-        }
-
-        if(size == 1){
+        }else if(size == 1){
             head = tail = null;
-            size--;
-            return true;
+        }else{
+            head = head.next;
         }
-
-        head = head.next;
         size--;
         return true;
     }
     
     public int Front() {
-        if(head == null){
+        if(size == 0){
             return -1;
         }
+
         return head.data;
     }
     
     public int Rear() {
-        if(head == null){
+        if(size == 0){
             return -1;
         }
+
         return tail.data;
     }
     
@@ -70,7 +67,7 @@ class MyCircularQueue {
     }
     
     public boolean isFull() {
-        return (size == k);
+        return size == k;
     }
 }
 
