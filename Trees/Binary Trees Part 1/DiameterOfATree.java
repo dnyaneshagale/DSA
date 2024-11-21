@@ -30,14 +30,14 @@ public class DiameterOfATree {
         }
 
         int leftDiameter = diameter(root.left);
-        int rightDiameter = diameter(root.right);
-
         int leftHeight = height(root.left);
+
+        int rightDiameter = diameter(root.right);
         int rightHeight = height(root.right);
 
         int selfDiameter = leftHeight+rightHeight+1;
 
-        return Math.max(selfDiameter, Math.max(rightDiameter, selfDiameter));
+        return Math.max(selfDiameter, Math.max(rightDiameter, leftDiameter));
     }
     // Approach No. 1 END//
 
