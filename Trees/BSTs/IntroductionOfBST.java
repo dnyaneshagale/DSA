@@ -44,6 +44,43 @@ public class IntroductionOfBST {
         }
     }
 
+    public static Node delete(Node root, int val) {
+        if(root.data > val) {
+            root.left = delete(root.left, val);
+        }
+        else if(root.data < val) {
+            root.right = delete(root.right, val);
+        } 
+        else {
+
+            // CASE 1 =>  (Leaf Nodes (0 Children))
+            if(root.left == null && root.right == null) {
+                return null;
+            }
+
+            // CASE 2 =>  (Only 1 child)
+            if(root.left == null) {
+                return root.right;
+            } else if(root.right == null) {
+                return root.left;
+            }
+
+            //Case 3 => 
+
+            Node inOrdSucc = findInorderSuccessor(root.right);
+            root.data = inOrdSucc.data;
+            root.right = delete(root.right, inOrdSucc.data);
+        }
+        return root;
+    }
+
+    public static Node findInorderSuccessor(Node root) {
+        while(root.left != null) {
+            root = root.left;
+        }
+        return root;
+    }
+
     public static void inOrder(Node root) {
         if(root == null) {
             return;
@@ -62,6 +99,12 @@ public class IntroductionOfBST {
             root = insert(root, values[i]);
         }
 
+        inOrder(root);
+
+        System.out.println("\n");
+
+
+        delete(root, 8);
         inOrder(root);
     }
 }
