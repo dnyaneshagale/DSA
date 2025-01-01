@@ -68,4 +68,20 @@ public class MinHeapImplementation {
             return arr.size() == 0;
         }
     }
+
+    public static void main(String[] args) {
+        Heap pq = new Heap();
+
+        pq.add(2);
+        pq.add(4);
+        pq.add(1);
+        pq.add(5);
+
+        System.out.print("Min Heap -> \n");
+
+        while(!pq.isEmpty()) {
+            System.out.println(pq.peek());
+            pq.remove();
+        }
+    }
 }
