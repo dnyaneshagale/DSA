@@ -63,12 +63,10 @@ public class ImplementationOfHashMap {
                 buckets[i] = new LinkedList<>();
             }
 
-            for(int i = 0; i < oldBucket.length; i++) {
-                LinkedList ll = oldBucket[i];
-
-                for(int j = 0; j < ll.size(); j++) {
-                    Node node = ll.remove();
-                    put(node.key, node.value);
+            for (LinkedList<Node> ll : oldBucket) {
+                while (!ll.isEmpty()) {             // Remove nodes safely
+                    Node node = ll.removeFirst();   // Remove and retrieve first node
+                    put(node.key, node.value);      // Reinsert into new buckets
                 }
             }
         }
