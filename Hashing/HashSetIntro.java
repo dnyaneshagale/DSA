@@ -1,4 +1,6 @@
-import java.util.HashSet;
+import java.util.*;
+
+import javax.swing.plaf.basic.BasicInternalFrameUI.InternalFrameLayout;
 
 public class HashSetIntro {
     public static void main(String[] args) {
@@ -19,8 +21,23 @@ public class HashSetIntro {
 
         System.out.println(set.size());
 
-        set.clear();
-
         System.out.println(set.isEmpty());
+
+
+        // Iteration on HashSet
+
+        Iterator itr = set.iterator();
+        while(itr.hasNext()) {
+            System.out.print(itr.next() + " ");
+        }
+
+        System.out.println("\n");
+
+
+        // Using Enhanced for Loop
+
+        for(Integer num : set) {
+            System.out.print(num + " ");
+        }
     }
 }
