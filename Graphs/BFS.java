@@ -26,6 +26,7 @@ public class BFS {
         graph[1].add(new Edge(1, 2, 4)); 
         graph[1].add(new Edge(1, 0, 2));
         graph[1].add(new Edge(1, 3, 5)); 
+        
         graph[2].add(new Edge(2, 1, 4));
         graph[2].add(new Edge(2, 3, 3));
     
