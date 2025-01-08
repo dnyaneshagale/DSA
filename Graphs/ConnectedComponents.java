@@ -69,6 +69,7 @@ public class ConnectedComponents {
             }
         }
     }
+    
     public static void main(String[] args) {
         ArrayList<Edge> [] graph = new ArrayList[5];
         createGraph(graph);
