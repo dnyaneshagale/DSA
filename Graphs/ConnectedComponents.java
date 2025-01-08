@@ -69,12 +69,39 @@ public class ConnectedComponents {
             }
         }
     }
+
+    public static void dfs(ArrayList<Edge>[] graph) {
+        boolean[] visited = new boolean[graph.length];
+
+        for(int i = 0; i < graph.length; i++) {
+            if (!visited[i]) { // Avoid revisiting nodes
+                dfsUtil(graph, i, visited);
+            }
+        }
+    }
     
+
+    public static void dfsUtil(ArrayList<Edge> [] graph, int curr, boolean[] visited) {
+        System.out.print(curr + " ");
+        visited[curr] = true;
+
+        for(int i = 0; i < graph[curr].size(); i++) {
+            Edge e = graph[curr].get(i);
+
+            if(!visited[e.destination]) {
+                dfsUtil(graph, e.destination, visited);
+            }
+        }
+        
+    }
+
     public static void main(String[] args) {
         ArrayList<Edge> [] graph = new ArrayList[5];
         createGraph(graph);
 
         bfs(graph);
+        System.out.println();
+        dfs(graph);
     }
 }
 
